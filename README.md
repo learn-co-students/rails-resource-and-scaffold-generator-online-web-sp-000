@@ -1,5 +1,5 @@
 # Resource and Scaffold Generator
-
+# Another buggy lesson, sigh...
 ## Objectives
 
 1. Use the resource generator
