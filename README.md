@@ -211,7 +211,7 @@ With modern development practices, a large number of Rails apps are leveraging c
 
 If you compare this with the `resource` generator, the code from the `resource` generator will build out the base setup required for the new feature, but it will let you control the implementation.
 
-Let's pretend that you're integrating the ReactJS framework into your Rails application. If you use a scaffold you will instantly have to go through the code and remove a large percentage of the code along with around 50% of the files themselves. Whereas if you run the `resource` generator, it simply creates the: migrations, model, routes, controller, and asset pipeline files. This means that you will be able to instantly start implementing the ReactJS components instead of having to be concerned with which elements need to be deleted.
+Let's pretend that you're integrating the ReactJS framework into your Rails application. If you use a sdaffold you will instantly have to go through the code and remove a large percentage of the code along with around 50% of the files themselves. Whereas if you run the `resource` generator, it simply creates the: migrations, model, routes, controller, and asset pipeline files. This means that you will be able to instantly start implementing the ReactJS components instead of having to be concerned with which elements need to be deleted.
 
 A road trip is a helpful analogy:
 
