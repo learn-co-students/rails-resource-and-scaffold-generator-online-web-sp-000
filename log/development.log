@@ -124,3 +124,108 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 141ms (Views: 136.0ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/articles" for ::1 at 2020-03-09 13:02:08 -0500
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (28.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (213.0ms)
+Completed 200 OK in 535ms (Views: 452.5ms | ActiveRecord: 28.1ms)
+
+
+Started GET "/articles" for ::1 at 2020-03-09 14:01:05 -0500
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (70.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (150.4ms)
+Completed 200 OK in 519ms (Views: 308.7ms | ActiveRecord: 70.7ms)
+
+
+Started GET "/articles/new" for ::1 at 2020-03-09 14:03:18 -0500
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (77.1ms)
+  Rendered articles/new.html.erb within layouts/application (119.3ms)
+Completed 200 OK in 262ms (Views: 205.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/articles" for ::1 at 2020-03-09 14:03:30 -0500
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x22gJ1+bzVUw4oLHcDDaFxJdggT9WBztfw6vH58IOcGDtzGpItlLbG3rM1iP3EU75z7IiJ0wTL7s+UVGMsgzyw==", "article"=>{"title"=>"yea1", "body"=>"body1\r\n"}, "commit"=>"Create Article"}
+  [1m[35m (0.9ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (86.9ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "yea1"], ["body", "body1\r\n"], ["created_at", "2020-03-09 19:03:30.381232"], ["updated_at", "2020-03-09 19:03:30.381232"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/1
+Completed 302 Found in 167ms (ActiveRecord: 90.4ms)
+
+
+Started GET "/articles/1" for ::1 at 2020-03-09 14:03:30 -0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (7.6ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 216ms (Views: 191.8ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/articles/1/edit" for ::1 at 2020-03-09 14:03:36 -0500
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (1.8ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (16.7ms)
+  Rendered articles/edit.html.erb within layouts/application (41.4ms)
+Completed 200 OK in 178ms (Views: 167.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/articles" for ::1 at 2020-03-09 14:03:38 -0500
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (5.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 95ms (Views: 85.4ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/articles/new" for ::1 at 2020-03-09 14:03:45 -0500
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (8.2ms)
+  Rendered articles/new.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 102ms (Views: 95.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/dfdsaf" for ::1 at 2020-03-09 14:03:52 -0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"dfdsaf"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 12ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=dfdsaf):
+  
+app/controllers/articles_controller.rb:67:in `set_article'
+  Rendering /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (46.8ms)
+  Rendering /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (45.3ms)
+  Rendering /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.6ms)
+  Rendered /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (223.0ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendering /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendering /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendering /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from ___sers_pancholabradorjr__rvm_gems_ruby_______gems_web_console_______lib_web_console_templates_console_js_erb__4150474135225271902_70197561704580 at /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (189.2ms)
+  Rendering /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendering /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.3ms)
+  Rendered /Users/pancholabradorjr/.rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (402.0ms)
