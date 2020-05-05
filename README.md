@@ -222,6 +222,5 @@ A road trip is a helpful analogy:
 
 ## Resources
 
-* [Rails Generator Documentation](http://api.rubyonrails.org/classes/Rails/Generators.html)
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/rails-resource-and-scaffold-generator'>Resource Generator/ Routes</a> on Learn.co and start learning to code for free.</p>
