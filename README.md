@@ -1,3 +1,5 @@
+Hello :)
+
 # Resource and Scaffold Generator
 
 ## Objectives
