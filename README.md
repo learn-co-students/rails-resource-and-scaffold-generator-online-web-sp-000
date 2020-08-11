@@ -10,7 +10,7 @@
 6. Use the resources route helper to generate the RESTful routes
 
 ## Intro
-
+##
 In a [previous lesson](https://github.com/learn-co-curriculum/rails-generators-readme) we reviewed each of the popular generators in Rails. I purposefully left one out: the Rails `scaffold` generator. The reason for this is mainly due to the fact that it's not considered a good practice to use scaffolds in a production application. With that being said, I do think it's important to study scaffolds since they can be a great reference for how we can build CRUD functionality into our apps.
 
 First let's discuss why it's not a great idea to use scaffolds in real world development. Let's start with a case study to see what a scaffold actually creates. Run this command in the terminal:
