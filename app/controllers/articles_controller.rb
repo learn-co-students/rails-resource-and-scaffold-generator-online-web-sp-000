@@ -50,7 +50,7 @@ class ArticlesController < ApplicationController
       end
     end
   end
-
+#ffffff
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
