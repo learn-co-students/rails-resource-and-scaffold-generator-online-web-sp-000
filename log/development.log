@@ -2,3 +2,225 @@
   [1m[35m (0.0ms)[0m  select sqlite_version(*)
   [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateArticles (20210612014455)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210612014455"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-12 01:45:11.742108"], ["updated_at", "2021-06-12 01:45:11.742108"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for ::1 at 2021-06-11 21:46:38 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/mckaylalankau/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mckaylalankau/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb (3.8ms)
+Completed 200 OK in 17ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for ::1 at 2021-06-11 21:46:44 -0400
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (35.4ms)
+  Rendered articles/new.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 778ms (Views: 769.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/articles" for ::1 at 2021-06-11 21:46:59 -0400
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/ikeRY2+EbEf8QCQjsEzRWAQdLcK7TMWLWMDRCjkbIfkdAMhNA8PSGOj8xoIP57iZz8cLsxV9QNYB/F3nQRGrA==", "article"=>{"title"=>"Hi baby", "body"=>"you are my baby"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Hi baby"], ["body", "you are my baby"], ["created_at", "2021-06-12 01:46:59.988228"], ["updated_at", "2021-06-12 01:46:59.988228"]]
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/1
+Completed 302 Found in 12ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/articles/1" for ::1 at 2021-06-11 21:47:00 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 45ms (Views: 14.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/articles" for ::1 at 2021-06-11 21:47:03 -0400
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles" for ::1 at 2021-06-11 21:47:37 -0400
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 49ms (Views: 47.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/articles/1" for ::1 at 2021-06-11 21:48:00 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 35ms (Views: 31.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles" for ::1 at 2021-06-11 21:48:03 -0400
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 29ms (Views: 26.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles/new" for ::1 at 2021-06-11 21:48:04 -0400
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (2.7ms)
+  Rendered articles/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/articles" for ::1 at 2021-06-11 21:48:24 -0400
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bcgboIVEI3moleiy7Ywz2AIOFnPVvB0nRRPw4vXccUl3lQbEPPU9gNTHGzhrcp5/BSF+6hME2zIwdwLRQDxbYg==", "article"=>{"title"=>"stuff", "body"=>"Scaffold vs Resource Generators\r\nSince we've already discussed that it's discouraged to utilize scaffolds in production applications, it's fair to ask what a good alternative is. That's where the resource generator comes into play.\r\n\r\nWe've discussed in detail what the resource generator does, so what makes it a better solution than scaffolds?\r\n\r\nThe scaffold generator tends to be very 'opinionated' with the code that it builds. By opinionated I mean that it builds out the system in a very specific manner, which is rarely the way that you would want to build your application."}, "commit"=>"Create Article"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "stuff"], ["body", "Scaffold vs Resource Generators\r\nSince we've already discussed that it's discouraged to utilize scaffolds in production applications, it's fair to ask what a good alternative is. That's where the resource generator comes into play.\r\n\r\nWe've discussed in detail what the resource generator does, so what makes it a better solution than scaffolds?\r\n\r\nThe scaffold generator tends to be very 'opinionated' with the code that it builds. By opinionated I mean that it builds out the system in a very specific manner, which is rarely the way that you would want to build your application."], ["created_at", "2021-06-12 01:48:24.462184"], ["updated_at", "2021-06-12 01:48:24.462184"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/2
+Completed 302 Found in 5ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/articles/2" for ::1 at 2021-06-11 21:48:24 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles" for ::1 at 2021-06-11 21:48:29 -0400
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 28ms (Views: 24.5ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/articles/2" for ::1 at 2021-06-11 21:48:45 -0400
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"0xMaPyCLKVeXIyKlfdyObpCjj3oNaiecwegEfIa8REzJTgdbmTo3rutx0S/7IiPJl4zn48vS4Ym0jPZPM1xuZw==", "id"=>"2"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 2]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 5ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/articles" for ::1 at 2021-06-11 21:48:45 -0400
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/articles/new" for ::1 at 2021-06-11 21:48:48 -0400
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (2.7ms)
+  Rendered articles/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2021-06-11 21:48:51 -0400
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles/1/edit" for ::1 at 2021-06-11 21:48:53 -0400
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (2.6ms)
+  Rendered articles/edit.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/articles/1" for ::1 at 2021-06-11 21:48:56 -0400
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F7sg3j6se6w0qz1c+nbRVZ/0HBpkfvUeXygzTC00hykN5j26hx1lVUj5ztZ8iHzymNt0g6LGMwsqTMF/mNStAg==", "article"=>{"title"=>"Hi baby", "body"=>"you are my baby Scaffold vs Resource Generators\r\nSince we've already discussed that it's discouraged to utilize scaffolds in production applications, it's fair to ask what a good alternative is. That's where the resource generator comes into play.\r\n\r\nWe've discussed in detail what the resource generator does, so what makes it a better solution than scaffolds?\r\n\r\nThe scaffold generator tends to be very 'opinionated' with the code that it builds. By opinionated I mean that it builds out the system in a very specific manner, which is rarely the way that you would want to build your application."}, "commit"=>"Update Article", "id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "articles" SET "body" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["body", "you are my baby Scaffold vs Resource Generators\r\nSince we've already discussed that it's discouraged to utilize scaffolds in production applications, it's fair to ask what a good alternative is. That's where the resource generator comes into play.\r\n\r\nWe've discussed in detail what the resource generator does, so what makes it a better solution than scaffolds?\r\n\r\nThe scaffold generator tends to be very 'opinionated' with the code that it builds. By opinionated I mean that it builds out the system in a very specific manner, which is rarely the way that you would want to build your application."], ["updated_at", "2021-06-12 01:48:56.368595"], ["id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/1
+Completed 302 Found in 6ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/articles/1" for ::1 at 2021-06-11 21:48:56 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles" for ::1 at 2021-06-11 21:48:59 -0400
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/1" for ::1 at 2021-06-11 21:49:03 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 31ms (Views: 28.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles" for ::1 at 2021-06-11 21:49:05 -0400
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for ::1 at 2021-06-11 21:49:14 -0400
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (2.0ms)
+  Rendered articles/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2021-06-11 21:49:15 -0400
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.2ms)
+
+
